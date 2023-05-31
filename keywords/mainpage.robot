@@ -1,10 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
+
 Variables    ../variables/mainpage.py
 
 *** Keywords ***
 abrir navegador no site
     Open Browser    ${MAIN_PAGE_URL}    ${DRIVER}
+    Set Selenium Speed    0.10s
+    Maximize Browser Window
     Title Should Be    ${TITLE}
     Location Should Be    ${MAIN_PAGE_URL}    
 

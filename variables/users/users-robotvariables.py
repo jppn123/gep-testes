@@ -1,0 +1,13 @@
+
+USER_NOME = '//*[@scope="col"][1]'
+USER_NOMETEXT = 'NOME'
+USER_TYPE = '//*[@scope="col"][2]'      
+USER_TYPETEXT = 'TIPO DE USUÁRIO'
+USER_EMAIL = '//*[@scope="col"][3]'      
+USER_EMAILTEXT = 'EMAIL'
+USER_ATIVO = '//*[@scope="col"][4]'      
+USER_ATIVOTEXT = 'ATIVO'
+USER_FONE = '//*[@scope="col"][5]'      
+USER_FONETEXT = 'TELEFONE'
+USER_MATRICULA = '//*[@scope="col"][6]'      
+USER_MATRICULATEXT = 'MATRÍCULA'

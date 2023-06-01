@@ -34,11 +34,6 @@ clicar em Salas e testar o crud
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
     testa room page
 
-    apagar tabela    ${ROOM_TABLE_NOME}    apagar sala
-    fechar toast    ${ROOM_CLOSE_TOAST}
-    apagar tabela    ${ROOM_TABLE_NOME}    apagar sala
-    fechar toast    ${ROOM_CLOSE_TOAST}
-
     adicionar sala    LATIM    ${ROOM_SIGLA_SALA_LAT}     Sala latim
     adicionar baia 1    ${ROOM_SIGLA_ESPACO_ESPACO1}    E1    primeiro espaço localizado na sala latim
     adicionar baia 2    ${ROOM_SIGLA_ESPACO_ESPACO2}    E2    segundo espaço localizado na sala latim
@@ -58,11 +53,6 @@ clicar em Salas e testar o crud
 clicar em Computadores e testar o crud
     resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}
     testa machine page
-
-    apagar tabela    ${MACHINE_TABLE_MAQUINA}    apagar maquina
-    fechar toast    ${MACHINE_CLOSE_TOAST}
-    apagar tabela    ${MACHINE_TABLE_MAQUINA}    apagar maquina
-    fechar toast    ${MACHINE_CLOSE_TOAST}
 
     adicionar maquina    maquina1    1234    maquina1 da sala latim espaço 1    ${MACHINE_ADD_SALA_SELECTOR1}    ${MACHINE_ADD_ESPACO_SELECTOR1}
     fechar toast    ${MACHINE_CLOSE_TOAST}
@@ -87,6 +77,9 @@ clicar em Participantes do projeto e testar o crud
 
     adicionar usuario    Jao    jao@gmail.com    12345678998765    85912345678
     fechar toast    ${MACHINE_CLOSE_TOAST}
+    resetar pagina    ${USER_BUTTON}    ${USER_PAGE_URL}    ${USER_ADD_BUTTON}
+    testa pesquisar user
+    testa editar user
 
 resetar datagrid maquina
     resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}

@@ -17,10 +17,14 @@ adicionar usuario
     Input Text    ${USER_ADD_INPUT_EMAIL}    ${email}
     Input Text    ${USER_ADD_INPUT_MATRICULA}    ${matricula}
     Input Text    ${USER_ADD_INPUT_TELEFONE}    ${fone}
-    Input Text    ${USER_ADD_INPUT_TYPES}     Professor
-    Click Element    ${USER_ADD_INPUT_LEVELACCESS}
+    Click Element    ${USER_ADD_INPUT_TYPES}     
+    Wait Until Element Is Visible    ${USER_ADD_INPUT_TYPES_SELECTOR}
+    click element     ${USER_ADD_INPUT_TYPES_SELECTOR}
+
     Click Element    ${USER_ADD_BUTTON_NIVEL}
-    Input Text    ${USER_ADD_INPUT_LEVELACCESS}    Administrador
+    Click Element    ${USER_ADD_INPUT_LEVELACCESS}    
+    Wait Until Element Is Visible    ${USER_ADD_INPUT_LEVELACCESS_SELECTOR}
+    Click Element    ${USER_ADD_INPUT_LEVELACCESS_SELECTOR}
     Click Element    ${USER_ADD_BUTTON_SALVAR}
 
 testa user page
@@ -38,3 +42,25 @@ apagar user
         Click Element    ${USER_DELETE_CONFIRM_BUTTON}
     END
     
+testa pesquisar user
+    Wait Until Element Is Visible    ${USER_INPUT_PESQUISAR}
+    Input Text    ${USER_INPUT_PESQUISAR}    jao
+    Element Text Should Be    ${USER_TABLE_NOME}    Jao
+    Element Text Should Be    ${USER_TABLE_TYPE}   Professor 
+    Element Text Should Be    ${USER_TABLE_EMAIL}    jao@gmail.com
+    Element Text Should Be    ${USER_TABLE_ATIVO}    Sim
+    Element Text Should Be    ${USER_TABLE_FONE}    +5585912345678
+    Element Text Should Be    ${USER_TABLE_MATRICULA}    12345678998765
+
+testa editar user
+    Wait Until Element Is Visible    ${USER_TABLE_EDIT_BUTTON}
+    Click Element    ${USER_TABLE_EDIT_BUTTON}
+    Wait Until Element Is Visible    ${USER_EDIT_INPUT_EMAIL}
+    Element Attribute Value Should Be    ${USER_EDIT_INPUT_NAME}    value    Jao
+    Element Attribute Value Should Be    ${USER_EDIT_INPUT_EMAIL}    value    jao@gmail.com
+    Element Attribute Value Should Be    ${USER_EDIT_INPUT_MATRICULA}    value      12345678998765
+    Element Attribute Value Should Be    ${USER_EDIT_INPUT_TELEFONE}        value        +55 (85) 91234-5678
+    Element Attribute Value Should Be    ${USER_EDIT_SELECTOR_TYPES}    value    Professor
+    Element Attribute Value Should Be    ${USER_EDIT_SELECTOR_LEVELACCESS}    value    Administrador
+    Click Element    ${USER_EDIT_BUTTON_CANCEL}
+

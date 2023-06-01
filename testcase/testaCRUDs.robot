@@ -3,7 +3,7 @@ Resource    ../keywords/mainpage.robot
 Resource    ../keywords/homepage.robot
 
 *** Test Cases ***
-cenário 1: Estar na homepage
+cenário 1: Limpeza dos datagrids e ir para a homepage
     verificar se está na homepage
     resetar datagrid maquina
     resetar datagrid Salas

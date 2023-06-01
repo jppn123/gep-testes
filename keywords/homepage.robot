@@ -64,10 +64,10 @@ clicar em Computadores e testar o crud
     apagar tabela    ${MACHINE_TABLE_MAQUINA}    apagar maquina
     fechar toast    ${MACHINE_CLOSE_TOAST}
 
-    adicionar maquina    maquina1    1234    maquina1 da sala latim espaço 1    ${ROOM_SIGLA_SALA_LAT}    ${ROOM_SIGLA_ESPACO_ESPACO1}
+    adicionar maquina    maquina1    1234    maquina1 da sala latim espaço 1    ${MACHINE_ADD_SALA_SELECTOR1}    ${MACHINE_ADD_ESPACO_SELECTOR1}
     fechar toast    ${MACHINE_CLOSE_TOAST}
 
-    adicionar maquina    maquina2    4321    maquina2 da sala latim espaço 2    ${ROOM_SIGLA_SALA_LAT}    ${ROOM_SIGLA_ESPACO_ESPACO2}
+    adicionar maquina    maquina2    4321    maquina2 da sala latim espaço 2    ${MACHINE_ADD_SALA_SELECTOR1}    ${MACHINE_ADD_ESPACO_SELECTOR2}
     fechar toast    ${MACHINE_CLOSE_TOAST}
 
     resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}
@@ -87,4 +87,37 @@ clicar em Participantes do projeto e testar o crud
 
     adicionar usuario    Jao    jao@gmail.com    12345678998765    85912345678
     fechar toast    ${MACHINE_CLOSE_TOAST}
-    click element    ${USER_ADD_BUTTON_CANCEL}
+
+resetar datagrid maquina
+    resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}
+    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${MACHINE_TABLE_MAQUINA}
+    WHILE    ${element_exists} == $True
+        apagar tabela    ${MACHINE_TABLE_MAQUINA}    apagar maquina
+        Sleep    0.2s
+        fechar toast    ${MACHINE_CLOSE_TOAST}
+        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${MACHINE_TABLE_MAQUINA}
+    END
+
+resetar datagrid Salas
+    resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
+    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${ROOM_TABLE_NOME}
+    WHILE    ${element_exists} == $True
+        apagar tabela    ${ROOM_TABLE_NOME}    apagar sala
+        Sleep    0.2s
+        fechar toast    ${MACHINE_CLOSE_TOAST}
+        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${ROOM_TABLE_NOME}
+    END
+
+resetar datagrid users
+    resetar pagina    ${USER_BUTTON}    ${USER_PAGE_URL}    ${USER_ADD_BUTTON}
+    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${USER_TABLE_NOME1}
+    WHILE    ${element_exists} == $True
+        apagar tabela    ${USER_TABLE_NOME1}    apagar user
+        Sleep    0.2s
+        fechar toast    ${MACHINE_CLOSE_TOAST}
+        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${USER_TABLE_NOME1}
+    END
+
+ir para a homepage
+    Go To    ${HOME_PAGE_URL}
+    Wait Until Location Is    ${HOME_PAGE_URL}

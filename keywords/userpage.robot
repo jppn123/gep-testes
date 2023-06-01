@@ -31,3 +31,10 @@ testa user page
     Element Text Should Be    ${USER_FONE}    ${USER_FONETEXT}
     Element Text Should Be    ${USER_MATRICULA}    ${USER_MATRICULATEXT}
   
+apagar user
+    ${val}=    Run Keyword And Return Status    Page Should Contain Element    ${USER_TABLE_REMOVE_BUTTON1}
+    IF    ${val}
+        Click Element    ${USER_TABLE_REMOVE_BUTTON1}
+        Click Element    ${USER_DELETE_CONFIRM_BUTTON}
+    END
+    

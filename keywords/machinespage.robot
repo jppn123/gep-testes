@@ -17,8 +17,14 @@ adicionar maquina
     Input Text    ${MACHINE_ADD_MAQUINA_INPUT}    ${nome}
     Input Text    ${MACHINE_ADD_PATRIMONIO_INPUT}    ${patrimonio}    
     Input Text    ${MACHINE_ADD_DESCRICAO_INPUT}    ${descriçao}
-    Input Text    ${MACHINE_ADD_SALA_INPUT}    ${sala_desejada}
-    Input Text    ${MACHINE_ADD_ESPACO_INPUT}    ${espaço_desejado}
+    
+    Click Element    ${MACHINE_ADD_SALA_INPUT}
+    Wait Until Element Is Visible    ${MACHINE_ADD_SALA_SELECTOR1}
+    Click Element    ${sala_desejada}
+
+    Click Element    ${MACHINE_ADD_ESPACO_INPUT}    
+    Wait Until Element Is Visible    ${MACHINE_ADD_ESPACO_SELECTOR1}
+    Click Element    ${espaço_desejado}
     salvar maquina
     
 testa machine page
@@ -46,7 +52,7 @@ testa editar maquina
     [Arguments]    ${nome}    ${patrimonio}    ${descriçao}    ${sala_desejada}    ${espaço_desejado}
     Wait Until Element Is Visible    ${MACHINE_TABLE_EDIT_BUTTON}
     Click Element    ${MACHINE_TABLE_EDIT_BUTTON}
-    Wait Until Element Is Visible    ${MACHINE_EDIT_PATRIMONIO_INPUT}
+    Wait Until Element Is Visible    ${MACHINE_EDIT_PATRIMONIO_INPUT}    7s
     Element Attribute Value Should Be    ${MACHINE_EDIT_MAQUINA_INPUT}      value      ${nome}
     Element Attribute Value Should Be    ${MACHINE_EDIT_PATRIMONIO_INPUT}   value      ${patrimonio}
     Element Attribute Value Should Be    ${MACHINE_EDIT_DESCRICAO_INPUT}    value      ${descriçao}

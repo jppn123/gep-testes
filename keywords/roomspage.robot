@@ -70,7 +70,7 @@ editar sala
 
 testa editar sala
     [Arguments]    ${nome}    ${sigla}    ${obs}
-    Wait Until Element Is Visible    ${ROOM_TABLE_EDIT_BUTTON}
+    Wait Until Element Is Visible    ${ROOM_TABLE_EDIT_BUTTON}    7s
     Click Element   ${ROOM_TABLE_EDIT_BUTTON}
     Wait Until Element Is Visible    ${ROOM_EDIT_NAME_INPUT}
     Element Attribute Value Should Be    ${ROOM_EDIT_NAME_INPUT}   value   ${nome}

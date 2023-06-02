@@ -18,4 +18,5 @@ ROOM_TABLE_DESC = '//tbody//tr[1]/td[@scope="row"][3]'
 ROOM_TABLE_NUMBER = '/html/body/div[3]/div/div[3]/nav/div/div/div/span/span[2]'
 
 ROOM_CLOSE_TOAST = 'Toastify__close-button Toastify__close-button--colored'
-ROOM_TRY_REMOVE_TOAST_TEXT = '/html/body/div[1]/div/div/div[1]/div[2]'
+ROOM_TRY_REMOVE_TOAST = '//div[1]/div/div/div[1]/div[2]'
+ROOM_TRY_REMOVE_TOAST_TEXT = 'Não é possível fazer a exclusão sala LATIM pois os seguintes espaços possuem máquina(s) vinculada(s) a ele.'

@@ -24,6 +24,7 @@ fechar toast
     Run Keyword If    ${element_exists}     Click Element    ${botao_fechar}
 conteudo do toast
     [Arguments]    ${xpath_do_texto}    ${mensagem}
+    Wait Until Element Is Visible    ${xpath_do_texto}
     ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${xpath_do_texto}
     Run Keyword If    ${element_exists}     Element Should Contain    ${xpath_do_texto}    ${mensagem}
 verificar se está na homepage    
@@ -34,17 +35,17 @@ clicar em Salas e testar o crud
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
     testa room page
 
-    adicionar sala    LATIM    ${ROOM_SIGLA_SALA_LAT}     Sala latim
+    adicionar sala    ${ROOM_NOME_SALA_LATIM}    ${ROOM_SIGLA_SALA_LATIM}     ${ROOM_DESC_SALA_LATIM}
     adicionar baia 1    ${ROOM_SIGLA_ESPACO_ESPACO1}    E1    primeiro espaço localizado na sala latim
     adicionar baia 2    ${ROOM_SIGLA_ESPACO_ESPACO2}    E2    segundo espaço localizado na sala latim
     testa botão apagar baia
     salvar sala
     fechar toast    ${ROOM_CLOSE_TOAST}
-    adicionar sala    LASIC    LAS    Sala lasic
+    adicionar sala    ${ROOM_NOME_SALA_LASIC}    ${ROOM_SIGLA_SALA_LASIC}    ${ROOM_DESC_SALA_LASIC}
     salvar sala
     fechar toast    ${ROOM_CLOSE_TOAST}
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
-    testa editar sala    LATIM    ${ROOM_SIGLA_SALA_LAT}     Sala latim
+    testa editar sala    ${ROOM_NOME_SALA_LATIM}    ${ROOM_SIGLA_SALA_LATIM}     ${ROOM_DESC_SALA_LATIM}
     testa pesquisar sala
     editar sala
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
@@ -63,13 +64,15 @@ clicar em Computadores e testar o crud
     resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}
     
     testa pesquisar maquina
-    testa editar maquina    maquina2    4321    maquina2 da sala latim espaço 2    ${ROOM_SIGLA_SALA_LAT}    ${ROOM_SIGLA_ESPACO_ESPACO2}
+    testa editar maquina    maquina2    4321    maquina2 da sala latim espaço 2    ${ROOM_SIGLA_SALA_LATIM}    ${ROOM_SIGLA_ESPACO_ESPACO2}
 
 
 testar se é possivel apagar sala com computadores
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
     apagar tabela    ${ROOM_TABLE_NOME}    apagar sala
-    conteudo do toast    ${ROOM_TRY_REMOVE_TOAST_TEXT}    Erro
+    conteudo do toast    ${ROOM_TRY_REMOVE_TOAST}    ${ROOM_TRY_REMOVE_TOAST_TEXT}
+    testar se é possível apagar baia com computador
+
 
 clicar em Participantes do projeto e testar o crud
     resetar pagina    ${USER_BUTTON}    ${USER_PAGE_URL}    ${USER_ADD_BUTTON}

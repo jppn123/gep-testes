@@ -78,3 +78,9 @@ testa editar sala
     Element Attribute Value Should Be    ${ROOM_EDIT_OBS_INPUT}    value   ${obs}
     Click Element    ${ROOM_EDIT_BUTTON_CANCEL}
 
+testar se é possível apagar baia com computador
+    Wait Until Element Is Visible    ${ROOM_TABLE_EDIT_BUTTON}
+    Click Element    ${ROOM_TABLE_EDIT_BUTTON}
+    Wait Until Element Is Visible    ${ROOM_EDIT_NAME_INPUT}
+    Element Attribute Value Should Be    ${ROOM_EDIT_APAGAR_BAIA1}    title    ${ROOM_EDIT_TRASH_ELEMENT_TITLE}
+    Click Element    ${ROOM_EDIT_BUTTON_CANCEL}

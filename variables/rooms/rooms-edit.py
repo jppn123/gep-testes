@@ -18,4 +18,5 @@ ROOM_EDIT_BAIA_ESPACO = '//*[@id="space-room-textfield-0"]'
 ROOM_EDIT_BAIA_SIGLA = '//*[@id="abbreviation-room-textfield-0"]'
 ROOM_EDIT_BAIA_OBS = '//*[@id="observation-room-textfield-0"]'
 
+ROOM_EDIT_APAGAR_BAIA1 = '//*[@id="trash-icon-0"]'
 ROOM_EDIT_APAGAR_BAIA2 = '//*[@id="trash-icon-1"]'

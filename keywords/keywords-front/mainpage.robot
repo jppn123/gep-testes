@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Variables    ../variables/mainpage.py
+Variables    ../../variables/variables-front/mainpage.py
 
 *** Keywords ***
 abrir navegador no site

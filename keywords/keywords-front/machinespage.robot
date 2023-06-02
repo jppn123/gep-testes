@@ -1,11 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Variables    ../variables/machines/machines-edit.py
-Variables    ../variables/machines/machines-datagrid.py
-Variables    ../variables/machines/machines-add.py
-Variables    ../variables/machines/machines-delete.py
-Variables    ../variables/machines/machines-robotvariables.py
+Variables    ../../variables/variables-front/machines/machines-edit.py
+Variables    ../../variables/variables-front/machines/machines-datagrid.py
+Variables    ../../variables/variables-front/machines/machines-add.py
+Variables    ../../variables/variables-front/machines/machines-delete.py
+Variables    ../../variables/variables-front/machines/machines-robotvariables.py
 
 *** Keywords ***
 adicionar maquina

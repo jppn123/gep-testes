@@ -1,6 +1,5 @@
 *** Settings ***
-Resource    ../keywords/mainpage.robot
-Resource    ../keywords/homepage.robot
+Resource    ../../keywords/keywords-front/mainpage.robot
 
 *** Test Cases ***
 cenário 1: Abrir o site do GEP e fazer login

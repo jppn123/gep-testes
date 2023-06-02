@@ -1,14 +1,12 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Variables    ../variables/rooms/rooms-datagrid.py
-Variables    ../variables/rooms/rooms-add.py
-Variables    ../variables/rooms/rooms-edit.py
-Variables    ../variables/rooms/rooms-delete.py
-Variables    ../variables/rooms/rooms-robotvariables.py
-*** Variables ***
-${latim}    
-${lasic}    
+Variables    ../../variables/variables-front/rooms/rooms-datagrid.py
+Variables    ../../variables/variables-front/rooms/rooms-add.py
+Variables    ../../variables/variables-front/rooms/rooms-edit.py
+Variables    ../../variables/variables-front/rooms/rooms-delete.py
+Variables    ../../variables/variables-front/rooms/rooms-robotvariables.py 
+
 *** Keywords ***
 adicionar sala
     [Arguments]    ${nome}    ${sigla}    ${obs}

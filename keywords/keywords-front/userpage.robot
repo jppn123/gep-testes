@@ -1,11 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
 
-Variables    ../variables/users/users-edit.py
-Variables    ../variables/users/users-delete.py
-Variables    ../variables/users/users-datagrid.py
-Variables    ../variables/users/users-add.py
-Variables    ../variables/users/users-robotvariables.py
+Variables    ../../variables/variables-front/users/users-edit.py
+Variables    ../../variables/variables-front/users/users-delete.py
+Variables    ../../variables/variables-front/users/users-datagrid.py
+Variables    ../../variables/variables-front/users/users-add.py
+Variables    ../../variables/variables-front/users/users-robotvariables.py
 
 *** Keywords ***
 adicionar usuario

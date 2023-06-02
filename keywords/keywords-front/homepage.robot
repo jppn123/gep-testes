@@ -1,6 +1,6 @@
 *** Settings ***
-Variables     ../variables/homepage.py
-#no final já terei todos os abaixo
+Variables     ../../variables/variables-front/homepage.py
+
 Resource    roomspage.robot
 Resource    machinespage.robot
 Resource    userpage.robot

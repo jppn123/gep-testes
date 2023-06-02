@@ -1,6 +1,5 @@
 *** Settings ***
-Resource    ../keywords/mainpage.robot
-Resource    ../keywords/homepage.robot
+Resource    ../../keywords/keywords-front/homepage.robot
 
 *** Test Cases ***
 cenário 1: Limpeza dos datagrids e ir para a homepage

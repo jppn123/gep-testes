@@ -1,7 +1,7 @@
 *** Settings ***
-Resource    ../../keywords/keywords-front/mainpage.robot
-Resource    ../../keywords/keywords-front/homepage.robot
-Resource    ../../keywords//keywords-back/getCookie.robot
+Resource    ../../keywords/keywords-back/homepage.robot
+Resource    ../../keywords/keywords-back/getCookie.robot
+Resource    ../../keywords/keywords-back/roomsRequests.robot
 
 *** Test Cases ***
 cenário 1: Abrir o site do GEP e fazer login
@@ -13,3 +13,9 @@ cenário 2: Pegar o cookie de login do usuário
     pegar cookie authorization
     Close Browser
     iniciar sessão com o header
+cenário 3: Room tests
+    # GetAllRooms method
+    GetRoomById method    1
+    # Post method
+    # DeleteById method    12
+    

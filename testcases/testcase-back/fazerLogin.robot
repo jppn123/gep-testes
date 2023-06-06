@@ -11,3 +11,5 @@ cenário 1: Abrir o site do GEP e fazer login
 cenário 2: Pegar o cookie de login do usuário
     verificar se está na homepage
     pegar cookie authorization
+    Close Browser
+    iniciar sessão com o header

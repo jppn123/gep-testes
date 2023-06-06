@@ -45,6 +45,7 @@ apagar user
 testa pesquisar user
     Wait Until Element Is Visible    ${USER_INPUT_PESQUISAR}
     Input Text    ${USER_INPUT_PESQUISAR}    jao
+    Wait Until Element Is Visible    ${USER_TABLE_NOME}
     Element Text Should Be    ${USER_TABLE_NOME}    Jao
     Element Text Should Be    ${USER_TABLE_TYPE}   Professor 
     Element Text Should Be    ${USER_TABLE_EMAIL}    jao@gmail.com

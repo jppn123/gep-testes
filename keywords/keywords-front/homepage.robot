@@ -4,6 +4,7 @@ Variables     ../../variables/variables-front/homepage.py
 Resource    roomspage.robot
 Resource    machinespage.robot
 Resource    userpage.robot
+Resource    projectspage.robot
 
 *** Keywords ***
 resetar pagina
@@ -27,6 +28,15 @@ conteudo do toast
     Wait Until Element Is Visible    ${xpath_do_texto}
     ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${xpath_do_texto}
     Run Keyword If    ${element_exists}     Element Should Contain    ${xpath_do_texto}    ${mensagem}
+resetar datagrid
+    [Arguments]    ${elemento_da_tabela}    ${função_de_apagar_datagrid}
+    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${elemento_da_tabela}
+    WHILE    ${element_exists} == $True
+        apagar tabela    ${elemento_da_tabela}    ${função_de_apagar_datagrid}
+        Sleep    0.2s
+        fechar toast    ${MACHINE_CLOSE_TOAST}
+        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${elemento_da_tabela}
+    END
 verificar se está na homepage    
     Wait Until Location Is    ${HOME_PAGE_URL}    10s
     Location Should Be    ${HOME_PAGE_URL}
@@ -86,33 +96,20 @@ clicar em Participantes do projeto e testar o crud
 
 resetar datagrid maquina
     resetar pagina    ${MACHINE_BUTTON}    ${MACHINE_PAGE_URL}    ${MACHINE_ADD_BUTTON}
-    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${MACHINE_TABLE_MAQUINA}
-    WHILE    ${element_exists} == $True
-        apagar tabela    ${MACHINE_TABLE_MAQUINA}    apagar maquina
-        Sleep    0.2s
-        fechar toast    ${MACHINE_CLOSE_TOAST}
-        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${MACHINE_TABLE_MAQUINA}
-    END
+    resetar datagrid    ${MACHINE_TABLE_MAQUINA}    apagar maquina
+   
 
 resetar datagrid Salas
     resetar pagina    ${SALAS_BUTTON}    ${ROOM_PAGE_URL}    ${ROOM_ADD_BUTTON}
-    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${ROOM_TABLE_NOME}
-    WHILE    ${element_exists} == $True
-        apagar tabela    ${ROOM_TABLE_NOME}    apagar sala
-        Sleep    0.2s
-        fechar toast    ${MACHINE_CLOSE_TOAST}
-        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${ROOM_TABLE_NOME}
-    END
-
+    resetar datagrid    ${ROOM_TABLE_NOME}    apagar sala
+    
 resetar datagrid users
     resetar pagina    ${USER_BUTTON}    ${USER_PAGE_URL}    ${USER_ADD_BUTTON}
-    ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${USER_TABLE_NOME1}
-    WHILE    ${element_exists} == $True
-        apagar tabela    ${USER_TABLE_NOME1}    apagar user
-        Sleep    0.2s
-        fechar toast    ${MACHINE_CLOSE_TOAST}
-        ${element_exists} =    Run Keyword And Return Status    Page Should Contain Element    ${USER_TABLE_NOME1}
-    END
+    resetar datagrid    ${USER_TABLE_NOME1}    apagar user
+    
+resetar datagrid projetos
+    resetar pagina    ${PROJETO_BUTTON}    ${PROJECTS_PAGE_URL}    ${PROJECTS_ADD_BUTTON}
+    resetar datagrid    ${PROJECTS_TABLE_NOME}    apagar projeto
 
 ir para a homepage
     Go To    ${HOME_PAGE_URL}

@@ -4,6 +4,7 @@ Resource    ../../keywords/keywords-front/homepage.robot
 *** Test Cases ***
 cenário 1: Limpeza dos datagrids e ir para a homepage
     verificar se está na homepage
+    resetar datagrid projetos
     resetar datagrid maquina
     resetar datagrid Salas
     resetar datagrid users
